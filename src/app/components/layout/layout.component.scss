@@ -1,0 +1,40 @@
+// .example-container {
+//     height: 100%;
+// }
+
+// ::ng-deep .mat.drawer {
+//     width: 250px !important;
+// }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar-single-row {
+  background: #dae2f9;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.mat-drawer.mat-drawer-side {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 250px;
+  position: fixed;
+  top: 64px;
+  border-radius: 0;
+}
+
+.mat-drawer-content {
+  margin-left: 250px;
+  margin-top: 64px;
+  background: #F8F8FF;
+}

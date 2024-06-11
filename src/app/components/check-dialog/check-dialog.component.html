@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>{{data.transactionName}}</h2>
+<mat-dialog-content class="mat-typography">
+    <div >
+        <div >
+            <div *ngIf="
+            data?.initiatedBy?.userEmailId ==
+            loggedInUser?.userEmailId
+          ">
+            <ng-container *ngFor="let member of data?.membersOfTransaction">
+                <p *ngIf="member?.userEmailId != loggedInUser?.userEmailId" class="fs-5">
+                    <mat-icon class="green">add</mat-icon>
+                    <span class="text-capitalize"> {{ member?.memberName }}</span>
+    
+                    <span *ngIf="!member?.paid">will pay you</span>
+                    <span *ngIf="member?.paid">paid you</span>
+                    {{
+                    data.amount /
+                    data.membersOfTransaction.length
+                    | currency: "INR":"symbol"
+                    }}
+                </p>
+
+            </ng-container>
+          </div>
+
+
+            <br />
+            <div  >
+                <ng-container *ngFor="let member of data?.membersOfTransaction">
+                    <p  *ngIf="
+                          data.initiatedBy.userEmailId !=
+                            loggedInUser?.userEmailId &&
+                          member?.userEmailId == loggedInUser?.userEmailId
+                        ">
+                        <mat-icon class="red">remove</mat-icon>
+                        <span class="fs-5">You </span>
+
+                        <span class="fs-5" *ngIf="!member?.paid">have to pay</span>
+                        <span class="fs-5" *ngIf="member?.paid">paid </span>
+    
+                        <span class="fs-5">
+                            {{
+                            data.amount /
+                            data.membersOfTransaction.length
+                            | currency: "INR":"symbol"
+                            }}
+                            to
+                        </span>
+                        <span class="text-capitalize fs-5">
+                            {{ data.initiatedBy.memberName }}</span>
+                        &nbsp;
+                        <span *ngIf="member?.paid" class="badge text-bg-success">
+                            Settled</span>
+                        </p>
+
+                </ng-container>
+            </div>
+            <br />
+
+
+        </div>
+
+     
+        Created By:
+        <span class="text-capitalize">{{
+            data.initiatedBy.memberName
+            }}</span>
+        <span *ngIf="
+      data.initiatedBy.userEmailId ==
+      loggedInUser?.userEmailId
+    ">
+            (You)</span>
+        &nbsp;
+        <span *ngIf="transactionSettled" class="badge text-bg-success">Settled</span>
+        <div class="text-secondary" *ngIf="data?.upiId">
+            UPI ID: {{ data.upiId }}
+        </div>
+    </div>
+
+    
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+    <button  [routerLink]="[
+    '/dashboard/transactions-details',
+    data.transactionId
+  ]" mat-button [mat-dialog-close]="true" cdkFocusInitial>More Details</button>
+</mat-dialog-actions>

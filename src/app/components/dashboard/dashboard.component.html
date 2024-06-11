@@ -1,0 +1,54 @@
+  <div class="container">
+      <div class="large-chart">
+        <div class="chart-container">
+            <canvas *ngIf="data; else content" baseChart [type]="'bar'" [data]="data" style="width: 100%; height: 450px;"></canvas>
+            <ng-template #content>
+              <!-- <h3>please create a group to display</h3> -->
+              <img class="noData" src="assets/img/createGrp1.png" alt="">
+            </ng-template>
+          </div>
+      </div>
+      <div class="wide-user group-container user-section">
+        <p class="heading">All Users</p>
+        <ng-container *ngFor="let user of users">
+          <mat-card  class="card-Name">
+            <mat-card-content style="padding: 0;">
+              <div class="fs-20">{{user?.userName}}</div>
+              <div class="fs-13">{{user?.userEmailId}}</div>
+            </mat-card-content>
+          </mat-card>
+          
+         
+
+        </ng-container>
+
+
+      </div>
+    
+  </div>
+  <div class="wrapper">
+    <div *ngIf="loggedInUserGroup" class="heading">Groups</div>
+    <owl-carousel-o [options]="customOptions">
+            
+      <ng-container *ngFor="let slide of loggedInUserGroup">
+        <ng-template class="slide" carouselSlide [id]="slide.id">
+            <div class="group-card">
+                <h1>{{slide.groupName}}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium id alias sunt odio iure minima
+                    ullam tenetur quidem maiores nam voluptates qui debitis eligendi repudiandae eveniet, a neque ducimus
+                    reiciendis!</p>
+                    <a [routerLink]="['/dashboard/transactions', slide.groupId]">Go Link &gt;</a>
+            </div>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>  
+
+  </div>
+
+  
+
+
+
+
+ 

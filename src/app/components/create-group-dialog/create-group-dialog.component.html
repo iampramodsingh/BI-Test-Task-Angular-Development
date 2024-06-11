@@ -1,0 +1,92 @@
+<h2 mat-dialog-title>Add New Group Here <mat-icon class="group-icon">group_add</mat-icon></h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="createGroupForm">
+    <p>
+      <mat-form-field >
+        <input type="text" matInput placeholder="Group Name" formControlName="groupName">
+        <mat-error *ngIf="!createGroupForm.get('groupName')!.valid">
+          <span *ngIf="createGroupForm.get('groupName')!.hasError('required')">
+              Group name is required
+          </span>
+         
+          
+        </mat-error>
+      </mat-form-field>
+    </p>
+   
+    <h5 class="text-center memberHeading">Members</h5>
+
+    <div formArrayName="members">
+      <div *ngFor="let member of getMembersFormControl(); let i = index">
+        <div [formGroupName]="i">
+          <!-- {{ i + 1 }}
+          skill name : -->
+          <div class="row dynamic-wrapper">
+            <div class="col-md-5 col-sm-5">
+
+              <p>
+                <mat-form-field >
+                  <input type="text" matInput placeholder="Name" formControlName="memberName" [matAutocomplete]="auto">
+                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    @for (option of autoCompleteUser; track option) {
+                      <mat-option [disabled]="option.userEmailId == api.getLoggedInUser().userEmailId" [value]="option.userName">{{option.userName}}</mat-option>
+                    }
+                  </mat-autocomplete>
+                  <mat-error *ngIf="members.at(i).get('memberName')!.hasError('required')">
+                        Name is required
+                  </mat-error>
+                </mat-form-field>
+              </p>
+
+            
+            </div>
+            <div class="col-md-5 col-sm-5">
+
+              <p>
+                <mat-form-field >
+                  <input type="email" matInput placeholder="Email" formControlName="userEmailId" [matAutocomplete]="auto1">
+                  <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+                    @for (option of autoCompleteUser; track option) {
+                      <mat-option [disabled]="option.userEmailId == api.getLoggedInUser().userEmailId" [value]="option.userEmailId">{{option.userEmailId}}</mat-option>
+                    }
+                  </mat-autocomplete>
+                  <mat-error *ngIf="members.at(i).get('userEmailId')!.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="members.at(i).get('userEmailId')!.hasError('pattern')">
+                    Invalid email format
+                  </mat-error>
+                
+                </mat-form-field>
+              </p>
+
+           
+            </div>
+            <div class="col-md-2">
+                <button
+                mat-mini-fab color="primary"
+                  [disabled]="i == 0"
+                  class="btn btn-danger removeButton"
+                  (click)="removemember(i)"
+                >
+                <mat-icon>close</mat-icon>
+                </button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button class="btn btn-success" (click)="addMemberButtonClick()">
+      <i class="fa-solid fa-plus"></i> Add member
+    </button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="createGroup()"
+  [disabled]="!createGroupForm.valid">Create Group</button>
+</mat-dialog-actions>

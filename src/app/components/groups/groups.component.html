@@ -1,0 +1,20 @@
+<div class="container responsive-grid" *ngIf="loggedInUserGroup; else content">
+    <ng-container *ngFor="let grp of loggedInUserGroup">
+
+        <div class="group-container">
+            <div class="group-card">
+                <h1>{{grp?.groupName}}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium id alias sunt odio iure minima
+                    ullam tenetur quidem maiores nam voluptates qui debitis eligendi repudiandae eveniet, a neque
+                    ducimus
+                    reiciendis!</p>
+                <a [routerLink]="['/dashboard/transactions', grp.groupId]">Go Link &gt;</a>
+            </div>
+        </div>
+
+    </ng-container>
+    
+    </div>
+        <ng-template #content>
+            <img src="assets/img/createGrp1.png" alt="">
+        </ng-template>

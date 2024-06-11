@@ -1,0 +1,65 @@
+// .vl{
+//     border-left: 1px solid grey;
+//     height: 30px;
+//     padding-left: 10px;
+//     padding-right: 10px;
+// }
+// .fa-user{
+//     padding-right: 10px;
+// }
+// .paidButton{
+//     float: right;
+// }
+// .fontType{
+//     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+// }
+.container {
+    padding: 24px;
+}
+.responsive-grid {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 20px;
+}
+
+.mat-mdc-card-header {
+    padding: 16px 16px 0;
+    background: #dae2f9;
+    padding-bottom: 12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.mark {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mat-mdc-form-field {
+    width: 100%;
+    padding-top: 10px;
+}
+
+::ng-deep.mat-mdc-form-field-subscript-wrapper .mat-mdc-form-field-error-wrapper{
+    padding: 0;
+  }
+
+  .vl{
+    border-left: 1px solid grey;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chat-tile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.overflowY {
+    overflow-y: auto;
+    max-height: 339px;
+}

@@ -1,0 +1,514 @@
+//  user
+  [
+    {
+        "userName": "Yash Patnaik",
+        "userEmailId": "yash@gmail.com",
+        "groupsInvolved": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+        ],
+        "password": "123456"
+    },
+    {
+        "userName": "Pramod Singh",
+        "userEmailId": "singh.pramod9981@gmail.com",
+        "groupsInvolved": [
+            1,
+            2,
+            3
+        ],
+        "password": "123456"
+    }
+]
+
+,
+
+
+// transactions
+[
+    {
+        "groupId": "11",
+        "transactionName": "Hotel",
+        "initiatedBy": {
+            "memberName": "Pramod Singh",
+            "userEmailId": "singh.pramod9981@gmail.com"
+        },
+        "amount": 5000,
+        "membersOfTransaction": [
+            {
+                "memberName": "Kamlesh Sahu",
+                "userEmailId": "kamlesh@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "Kapil dev",
+                "userEmailId": "kapil@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com",
+                "paid": false
+            }
+        ],
+        "upiId": "pramod@oksbi",
+        "createdDate": "2024-06-10T06:10:50.532Z",
+        "transactionId": "1"
+    },
+    {
+        "groupId": "11",
+        "transactionName": "Taxi",
+        "initiatedBy": {
+            "memberName": "Pramod Singh",
+            "userEmailId": "singh.pramod9981@gmail.com"
+        },
+        "amount": 500,
+        "membersOfTransaction": [
+            {
+                "memberName": "Kamlesh Sahu",
+                "userEmailId": "kamlesh@gmail.com",
+                "paid": true
+            },
+            {
+                "memberName": "Kapil dev",
+                "userEmailId": "kapil@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com",
+                "paid": false
+            }
+        ],
+        "upiId": "pramood@oksbi",
+        "createdDate": "2024-06-10T07:46:27.689Z",
+        "transactionId": "2"
+    },
+    {
+        "groupId": "3",
+        "transactionName": "food",
+        "initiatedBy": {
+            "memberName": "Pramod Singh",
+            "userEmailId": "pramod@gmail.com"
+        },
+        "amount": 5000,
+        "membersOfTransaction": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "pramod@gmail.com",
+                "paid": false
+            }
+        ],
+        "upiId": "pramod@gmail.com",
+        "createdDate": "2024-06-11T09:23:20.656Z",
+        "transactionId": "3"
+    },
+    {
+        "groupId": "3",
+        "transactionName": "Taxi",
+        "initiatedBy": {
+            "memberName": "Pramod Singh",
+            "userEmailId": "pramod@gmail.com"
+        },
+        "amount": 3000,
+        "membersOfTransaction": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com",
+                "paid": false
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "pramod@gmail.com",
+                "paid": false
+            }
+        ],
+        "upiId": "pramod@gmail.com",
+        "createdDate": "2024-06-11T09:24:27.788Z",
+        "transactionId": "4"
+    }
+]
+
+
+// comments
+
+,
+[
+    {
+        "transactionId": "2",
+        "comments": [
+            {
+                "transactionId": "2",
+                "comment": "hey how are you",
+                "createdDate": "2024-06-10T13:24:20.670Z",
+                "commentId": "1",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            },
+            {
+                "transactionId": "2",
+                "comment": "can you please pay me Now",
+                "createdDate": "2024-06-10T13:24:34.527Z",
+                "commentId": "2",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            },
+            {
+                "transactionId": "2",
+                "comment": "it will great help",
+                "createdDate": "2024-06-10T13:24:45.162Z",
+                "commentId": "3",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            }
+        ]
+    },
+    {
+        "transactionId": "1",
+        "comments": [
+            {
+                "transactionId": "1",
+                "comment": "Hey Kapil How are you doing??",
+                "createdDate": "2024-06-10T13:25:32.487Z",
+                "commentId": "4",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            },
+            {
+                "transactionId": "1",
+                "comment": "how was you day",
+                "createdDate": "2024-06-10T13:25:48.996Z",
+                "commentId": "5",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            },
+            {
+                "transactionId": "1",
+                "comment": "can you please help me",
+                "createdDate": "2024-06-10T13:26:04.028Z",
+                "commentId": "6",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            },
+            {
+                "transactionId": "1",
+                "comment": "hello",
+                "createdDate": "2024-06-10T13:31:18.423Z",
+                "commentId": "7",
+                "commentedBy": {
+                    "memberName": "Pramod Singh",
+                    "userEmailId": "singh.pramod9981@gmail.com"
+                }
+            }
+        ]
+    }
+]
+
+// groups
+
+[
+    {
+        "id": "1",
+        "groupId": 2,
+        "groupName": "himachal Trip",
+        "members": [
+            {
+                "memberName": "sourabh kashyap",
+                "userEmailId": "sourabh@gmail.com"
+            },
+            {
+                "memberName": "yash Patnaik",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:50:46.418Z"
+    },
+    {
+        "id": "2",
+        "groupId": 1,
+        "groupName": "manali Trip",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "3",
+        "groupId": 3,
+        "groupName": "manali Trip3",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "4",
+        "groupId": 4,
+        "groupName": "manali Trip4",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "5",
+        "groupId": 5,
+        "groupName": "manali Trip",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "6",
+        "groupId": 6,
+        "groupName": "manali Trip6",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "7",
+        "groupId": 7,
+        "groupName": "manali Trip7",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "8",
+        "groupId": 8,
+        "groupName": "manali Trip8",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "9",
+        "groupId": 9,
+        "groupName": "manali Trip9",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "10",
+        "groupId": 10,
+        "groupName": "manali Trip10",
+        "members": [
+            {
+                "memberName": "Avinash",
+                "userEmailId": "avi@gmail.com"
+            },
+            {
+                "memberName": "yash",
+                "userEmailId": "yash@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T09:34:42.242Z"
+    },
+    {
+        "id": "11",
+        "groupId": 11,
+        "groupName": "Kashmir Trip",
+        "members": [
+            {
+                "memberName": "Kamlesh Sahu",
+                "userEmailId": "kamlesh@gmail.com"
+            },
+            {
+                "memberName": "Kapil dev",
+                "userEmailId": "kapil@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T22:30:09.648Z"
+    },
+    {
+        "id": "12",
+        "groupId": 12,
+        "groupName": "Delhi Trip",
+        "members": [
+            {
+                "memberName": "abcd",
+                "userEmailId": "abcd@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-09T22:42:39.851Z"
+    },
+    {
+        "id": "13",
+        "groupId": 13,
+        "groupName": "testing",
+        "members": [
+            {
+                "memberName": "testing",
+                "userEmailId": "testing@gmail.com"
+            },
+            {
+                "memberName": "Pramod Singh",
+                "userEmailId": "singh.pramod9981@gmail.com"
+            }
+        ],
+        "createdDate": "2024-06-10T05:54:15.531Z"
+    }
+]
+
+
+// loggedinuser 
+
+
+{
+    "userName": "Pramod Singh",
+    "userEmailId": "singh.pramod9981@gmail.com",
+    "groupsInvolved": [
+        1,
+        2,
+        3
+    ],
+    "password": "123456"
+}

@@ -1,0 +1,44 @@
+<div class="topbar">
+    <mat-toolbar >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon> bar_chart</mat-icon>
+      </button>
+      <span>Expense Management</span>
+      <span class="example-spacer"></span>
+      <div>
+        <button mat-raised-button (click)="openDialog()"><mat-icon>add</mat-icon> Create Group</button>
+      </div> &nbsp;&nbsp;&nbsp;
+      <div>
+        Hi, {{api.getLoggedInUser()?.userName}}
+      </div>
+     
+    </mat-toolbar>
+
+    <!-- <div style="height: 100px; background: red" >hello</div> -->
+  
+  </div>
+  <mat-drawer-container class="example-container content">
+    
+    <mat-drawer mode="side" opened>
+      <mat-nav-list>
+        @for (link of list; track link) {
+          <!-- <a   mat-list-item [attr.routerLink]="link.link"  [activated]="link.isActive" (click)="handleClick(link)">{{ link.name }}</a> -->
+
+          <a  mat-list-item *ngIf="link.isLink; else notLink" [routerLink]="link.link" [activated]="link.link === currentUrl">
+            {{ link.name }}
+          </a>
+          <ng-template #notLink>
+            <a  mat-list-item (click)="handleClick(link)">
+              {{ link.name }}
+            </a>
+          </ng-template>
+        }
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet (activate)="currentRoute($event)"></router-outlet>
+  
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  

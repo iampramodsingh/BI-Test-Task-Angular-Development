@@ -1,0 +1,250 @@
+// .container {
+//     padding: 24px;
+// }
+
+// img {
+//     width: 100%;
+//     height: 200px;
+//     object-fit: cover;
+// }
+
+// .responsive-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//     gap: 24px;
+// }
+
+/* 
+Before you begin, open CSS-Tricks or MDN for referencing settings to be used with the grid properties
+@see CSS-Tricks https://css-tricks.com/snippets/css/complete-guide-grid/
+@see MDN https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+
+Highlights:
+  - grid-auto-row
+  - grid-auto-column
+  - grid-auto-flow
+*/
+.container {
+  display: grid;
+  grid-gap: 15px;
+  padding: 24px;
+  padding-bottom: 6px;
+  /*  Here we combine repeat, auto-fit, & minmax to create a more responsive grid.  
+    While adjusting the viewport window you can see the cells are set to auto-fit the full length of each track with a minimum value of 200px. Adjusting the width of the window gives us a good look on both mobile and desktop displays.
+    */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /*  Using these settings for the row tracks will create implicit rows when the number of tracks is greater than the value we've set here, 2. 
+    That looks like junk amiright? We would rather like to see the implicit rows set at the same dimensions for we've defined for the first 2 rows. We can accomplish this with the `grid-auto-rows` property.
+    Try uncommenting and commenting out that setting and see how the it effects the grid. 
+    */
+  /*   grid-template-rows: repeat(2, 200px); */
+  /*  `grid-auto-rows` Defines implicit cell dimensions. The same settings is defined for columns, `grid0auto-columns`  */
+  grid-auto-rows: 200px;
+  /*  grid-auto-flow: row | column | row dense | column dense
+    An auto-placement algorithm to automatically place items for you!align-content
+    - `row` (default) fills each row in turn, adding new rows as necessary
+    - `column` fills each column in turn, adding new columns as necessary
+    - `dense` attempts to fill holes earlier in the grid if smaller items come up.
+    My favorite setting is `dense`, but try them out for yourself by commenting and uncommenting out the lines of code below.
+    */
+  /*   grid-auto-flow: row; */
+  /*   grid-auto-flow: column; */
+  grid-auto-flow: dense;
+}
+
+/* 
+  Everything below this comment does not directly apply to CSS Grid properties this example is targeting.
+  */
+
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.large-chart {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.large-group {
+  grid-column: span 5;
+  grid-row: span 2;
+}
+
+.wide-user {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+.wide {
+  grid-row: span 2;
+}
+
+.tall {
+  grid-column: span 2;
+}
+
+//   .container > div {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-size: 2em;
+//     color: #ffeead;
+//   }
+
+.container > div:nth-child(1n) {
+  // background-color: #96ceb4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+.container > div:nth-child(3n) {
+  // background-color: #88d8b0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+.container > div:nth-child(2n) {
+  // background-color: #ff6f69;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+.container > div:nth-child(4n) {
+  // background-color: #ffcc5c;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+.chart-container {
+  text-align: center;
+  // margin: 10px;
+  background: white;
+  border-radius: 4px
+}
+
+//   .group-container {
+//     padding: 10px;
+//   }
+
+.group-container {
+  display: flex;
+  justify-content: space-evenly;
+  background: white;
+}
+
+.group-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 250px;
+  height: auto;
+  align-items: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 2;
+  margin: 10px;
+}
+
+.group-card:hover {
+  background-color: #dae2f9;
+  transition: all 0.2s ease-in-out;
+}
+
+.group-card > h1 {
+  font-size: 28px;
+  margin: 0px;
+}
+
+.group-card > p {
+  font-size: 18px;
+  text-align: center;
+}
+.group-card > a {
+  text-decoration: none;
+  background-color: #dae2f9;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.group-card:hover.group-card > a {
+  background-color: white;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.carousel-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+::ng-deep .owl-theme .owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  padding: 0 13px;
+}
+
+
+.heading {
+  padding: 0 10px;
+  font-family: Helvetica, Arial, sans-serif;
+    text-anchor: start;
+    dominant-baseline: auto;
+    font-size: 14px;
+    font-weight: 900;
+    fill: rgb(55, 61, 63);
+
+}
+
+.card-Name {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 100px;
+  margin: 1rem;
+  position: relative;
+  width: 190px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 76px;
+}
+
+.user-section {
+  display: flex;
+    flex-direction: column;
+    height: 415px;
+    overflow: auto;
+    overflow-x: hidden;
+    justify-content:start
+
+}
+
+.fs-20 {
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.noData {
+  width: 100%;
+    height: 410px;
+    object-fit: contain;
+}

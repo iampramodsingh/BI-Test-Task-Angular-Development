@@ -1,0 +1,68 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title><p class="heading">{{IsLogin ? 'login' : 'Register'}}</p></mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="form">
+    
+        <p *ngIf="form.contains('name')">
+            <mat-form-field >
+              <input type="text" matInput placeholder="Enter your name" formControlName="name">
+              <mat-error *ngIf="!form.get('name')!.valid">
+                <span *ngIf="form.get('name')!.hasError('required')">
+                    Name is required
+                </span>
+                
+                
+              </mat-error>
+            </mat-form-field>
+          </p>
+
+      <p>
+        <mat-form-field >
+          <input type="text" matInput placeholder="Username" formControlName="username">
+          <mat-error *ngIf="!form.get('username')!.valid">
+            <span *ngIf="form.get('username')!.hasError('required')">
+                Email is required
+            </span>
+            <span *ngIf="form.get('username')!.hasError('email')">
+                Invalid email
+            </span>
+            
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.get('password')!.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <!-- <p *ngIf="error" class="error">
+        {{ error }}
+      </p> -->
+      <div class="button">
+        <!-- <button *ngIf="IsLogin && !isRecoveringPassword"  mat-button (click)="recoverPassword()" [disabled]="!form.get('username')!.valid">Recover Password</button> -->
+        <!-- <button *ngIf="IsLogin && isRecoveringPassword"  mat-button><mat-spinner [diameter]="20"></mat-spinner></button> -->
+        <button *ngIf="IsLogin && !isLoggingin"  mat-button [disabled]="!form.valid" (click)="submit()">Login</button>
+        <button *ngIf="IsLogin && isLoggingin"  mat-button><mat-spinner [diameter]="20"></mat-spinner></button>
+        <button *ngIf="!IsLogin" (click)="register()"  mat-button>Register</button>
+      </div>
+    
+    </form>
+    </mat-card-content>
+
+    </mat-card>
+    
+        <mat-hint *ngIf="IsLogin" class="msg">Don have an account? Create <a class="link" (click)="changeForm(false)"> here</a> </mat-hint>
+    
+    
+        <mat-hint *ngIf="!IsLogin" class="msg">Already have an account? <a class="link" (click)="changeForm(true)" >login</a> </mat-hint>
+
+</div>
+
+
+

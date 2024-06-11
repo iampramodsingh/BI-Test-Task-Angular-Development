@@ -1,0 +1,144 @@
+
+
+<div class="container responsive-grid">
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{transactionDetails.transactionName}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list role="list">
+                    <ng-container *ngFor="let member of transactionDetails?.membersOfTransaction">
+                        <mat-list-item role="listitem">
+                            <div *ngIf="
+                                transactionDetails?.initiatedBy.userEmailId ==
+                                  loggedInUser?.userEmailId &&
+                                member?.userEmailId != loggedInUser?.userEmailId
+                              ">
+                                <div *ngIf="member?.paid">
+                                    <span class="text-capitalize fontType">{{ member.memberName }}
+                                    </span>
+                                    paid you
+                                    {{
+                                    transactionDetails?.amount /
+                                    transactionDetails?.membersOfTransaction.length
+                                    | currency: "INR":"symbol"
+                                    }}
+                                    <!-- <hr /> -->
+                                </div>
+
+                                <div class="mark" *ngIf="!member?.paid">
+                                    <div>
+                                    <span class="text-capitalize fontType">
+                                        {{ member?.memberName }}</span>
+                                    -
+                                    {{
+                                    transactionDetails?.amount /
+                                    transactionDetails?.membersOfTransaction.length
+                                    | currency: "INR":"symbol"
+                                    }}
+
+                                    </div>
+                                    <button mat-button class="btn btn-success paidButton"
+                                        (click)="updateTransaction(member?.userEmailId)">
+                                        Mark as paid <mat-icon>check</mat-icon>
+                                    </button>
+                                    <!-- <hr /> -->
+                                </div>
+                            </div>
+
+                            <div *ngIf="
+                                  transactionDetails?.initiatedBy.userEmailId !=
+                                    loggedInUser?.userEmailId &&
+                                  member?.userEmailId == loggedInUser?.userEmailId
+                                ">
+                                <div *ngIf="member?.paid; fontType">
+                                    You have Paid
+                                    {{
+                                    transactionDetails?.amount /
+                                    transactionDetails?.membersOfTransaction.length
+                                    | currency: "INR":"symbol"
+                                    }}
+                                    to {{ transactionDetails?.initiatedBy.memberName }}
+                                </div>
+                                <div *ngIf="!member?.paid; fontType">
+                                    You have to pay
+                                    {{
+                                    transactionDetails?.amount /
+                                    transactionDetails?.membersOfTransaction.length
+                                    | currency: "INR":"symbol"
+                                    }}
+                                    to {{ transactionDetails?.initiatedBy.memberName }}
+                                </div>
+                            </div>
+                        </mat-list-item>
+
+                    </ng-container>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+
+
+    </div>
+    <div class="comment">
+        <body class="bg-light">
+            <!-- Comment section -->
+            <div class="page-width">
+              <div>
+                
+
+                <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>Comments</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <form [formGroup]="form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Leave a comment</mat-label>
+                                    <textarea matInput formControlName="commentInput" placeholder="Type your Comments Here.."></textarea>
+                                    <mat-error *ngIf="form.get('commentInput')?.hasError('required')">
+                                        Comment is Required
+                                    </mat-error>
+                                  </mat-form-field>
+                          </form>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button (click)="createComment()" [disabled]="!form.valid">Add Comment</button>
+                    </mat-card-actions>
+                  </mat-card>
+                  <br>
+                  <mat-card *ngIf="allComments.length > 0">
+                    <mat-card-content class="overflowY">
+                        <div *ngFor="let comment of allComments">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="chat-tile-header">
+                                                <mat-icon>supervisor_account</mat-icon>
+                                                <span class="vl text-success">
+                                                  {{ comment?.commentedBy.memberName }}</span
+                                                >
+                                                <span class="vl">
+                                                  {{ comment.createdDate | date: "dd/MM/yy hh:mm a" }}</span
+                                                >
+        
+                                            </div>
+                                          <hr />
+                                          {{ comment?.comment }}
+                                        </div>
+                                      </div>
+                                </mat-card-content>
+                              </mat-card>
+                           
+                            <br />
+                          </div>
+
+                    </mat-card-content>
+                  </mat-card>
+                
+              </div>
+            </div>
+          </body>
+    </div>
+</div>
